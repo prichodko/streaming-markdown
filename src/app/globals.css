@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* very cool */
+@property --reveal-progress {
+  syntax: '<percentage>';
+  initial-value: 100%;
+  inherits: false;
+}
+
+@keyframes reveal {
+  0% {
+    --reveal-progress: 100%;
+  }
+
+  100% {
+    --reveal-progress: -150%;
+  }
+}
+
+/* @media (prefers-reduced-motion: no-preference) { */
+.renderer > p {
+  white-space: pre-wrap;
+}
+
+.renderer > p,
+.renderer li,
+.renderer > h1,
+.reveal-text {
+  color: black;
+  mask-image: linear-gradient(
+    0,
+    rgba(0, 0, 0, 0) var(--reveal-progress),
+    rgba(0, 0, 0, 1) calc(var(--reveal-progress) + 150%)
+  );
+  mask-size: 100% 200%;
+  /* mask-repeat: repeat; */
+  /* mask-position: 100% 0; */
+  animation: reveal 0.5s forwards linear 0.2s;
+}
