@@ -129,7 +129,7 @@ export default function Home() {
       <div className="min-h-[calc(100vh-4rem)] overflow-scroll rounded shadow-xl p-10 bg-white border border-gray-200">
         <ReactMarkdown
           className={
-            '[&>p]:whitespace-pre-wrap prose prose-sm ' +
+            '[&>p]:whitespace-pre-wrap blinking-cursor prose prose-sm ' +
             (buffering ? (animate ? 'renderer' : '') : '')
           }
         >

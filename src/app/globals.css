@@ -57,11 +57,11 @@
   animation: reveal 0.5s forwards linear 0.2s;
 }
 
-.renderer > :not(ol):not(ul):not(pre):not(div):last-child:after,
-.renderer > ol:last-child > li:last-child:after,
-.renderer > ul:last-child > li:last-child:after {
-  z-index: 100;
-  position: relative;
+.blinking-cursor > :not(ol):not(ul):not(pre):not(div):last-child:after,
+.blinking-cursor > ol:last-child > li:last-child:after,
+.blinking-cursor > ul:last-child > li:last-child:after {
+  /* z-index: 100;
+  position: relative; */
   content: '▋';
   /* font-family: Circle, system-ui, sans-serif; */
   line-height: normal;
