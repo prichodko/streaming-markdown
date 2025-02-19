@@ -56,3 +56,26 @@
   /* mask-position: 100% 0; */
   animation: reveal 0.5s forwards linear 0.2s;
 }
+
+.renderer > :not(ol):not(ul):not(pre):not(div):last-child:after,
+.renderer > ol:last-child > li:last-child:after,
+.renderer > ul:last-child > li:last-child:after {
+  z-index: 100;
+  position: relative;
+  content: '▋';
+  /* font-family: Circle, system-ui, sans-serif; */
+  line-height: normal;
+  vertical-align: baseline;
+  color: #000;
+  /* animation: blink 1s step-end infinite; */
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

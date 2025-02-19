@@ -117,7 +117,7 @@ export default function Home() {
     isPlaying && !isComplete ? delay : null,
   )
 
-  const animatedText = useBufferedText(text, delimiter, duration)
+  const bufferedText = useBufferedText(text, delimiter, duration)
 
   return (
     <div className="p-8 grid grid-cols-2 gap-8">
@@ -133,7 +133,7 @@ export default function Home() {
             (buffering ? (animate ? 'renderer' : '') : '')
           }
         >
-          {buffering ? animatedText : text}
+          {buffering ? bufferedText : text}
         </ReactMarkdown>
       </div>
     </div>
