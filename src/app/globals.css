@@ -57,9 +57,9 @@
   animation: reveal 0.5s forwards linear 0.2s;
 }
 
-.blinking-cursor > :not(ol):not(ul):not(pre):not(div):last-child:after,
-.blinking-cursor > ol:last-child > li:last-child:after,
-.blinking-cursor > ul:last-child > li:last-child:after {
+.cursor > :not(ol):not(ul):not(pre):not(div):last-child:after,
+.cursor > ol:last-child > li:last-child:after,
+.cursor > ul:last-child > li:last-child:after {
   /* z-index: 100;
   position: relative; */
   content: '▋';
@@ -67,7 +67,7 @@
   line-height: normal;
   vertical-align: baseline;
   color: #000;
-  /* animation: blink 1s step-end infinite; */
+  animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {

@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import { useControls, button } from 'leva'
 
 import { useBufferedText } from './use-buffered-text'
+import clsx from 'clsx'
 
 type ContentType = 'simple' | 'commits' | 'files' | 'issues' | 'chatGPT'
 
@@ -83,7 +84,14 @@ export default function Home() {
       },
     }))
 
-  useControls('3 – Actions', () => ({
+  const [cursorControls] = useControls('3 – Cursor', () => ({
+    show: {
+      value: false,
+      label: 'Cursor',
+    },
+  }))
+
+  useControls('4 – Actions', () => ({
     play: button(() => {
       set({ isPlaying: !isPlaying })
     }),
@@ -128,10 +136,11 @@ export default function Home() {
       </div>
       <div className="min-h-[calc(100vh-4rem)] overflow-scroll rounded shadow-xl p-10 bg-white border border-gray-200">
         <ReactMarkdown
-          className={
-            '[&>p]:whitespace-pre-wrap blinking-cursor prose prose-sm ' +
-            (buffering ? (animate ? 'renderer' : '') : '')
-          }
+          className={clsx(
+            '[&>p]:whitespace-pre-wrap prose prose-sm',
+            buffering && animate && 'renderer',
+            cursorControls.show && 'cursor',
+          )}
         >
           {buffering ? bufferedText : text}
         </ReactMarkdown>
