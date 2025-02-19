@@ -39,6 +39,11 @@
 .renderer > p,
 .renderer li,
 .renderer > h1,
+.renderer > h2,
+.renderer > h3,
+.renderer > h4,
+.renderer > h5,
+.renderer > h6,
 .reveal-text {
   color: black;
   mask-image: linear-gradient(
